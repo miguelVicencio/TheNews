@@ -21,9 +21,11 @@
 
 package cl.ucn.disc.dsm.mvicencio.news;
 
+import java.util.List;
+
 /**
  * the Contracts of the news Project
- *
+ * @author Miguel Vicencio Gomez
  */
 public interface Contracts {
 
