@@ -19,7 +19,7 @@
  * OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package cl.ucn.disc.dsm.mvicencio.news;
+package cl.ucn.disc.dsm.mvicencio.news.model;
 
 import lombok.Getter;
 import net.openhft.hashing.LongHashFunction;

@@ -19,8 +19,9 @@
  * OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package cl.ucn.disc.dsm.mvicencio.news;
+package cl.ucn.disc.dsm.mvicencio.news.model;
 
+import cl.ucn.disc.dsm.mvicencio.news.model.News;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;

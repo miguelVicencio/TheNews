@@ -3,25 +3,28 @@
 Android Project to show a list of News
 
 ## Class Model
+
 ```puml
 @startuml
-package org.threeten.bp #ccffcc{
-    class ZonedDateTime #ffcccc{
-        ...
+package externals* #ffccff{
+    package org.threeten.bp #ccffcc{
+        class ZonedDateTime #ffcccc{
+            ...
+        }
+        class ZoneId #ffcccc{
+            ...
+        }
     }
-    class ZoneId #ffcccc{
-        ...
-    }
-}
-package net.openhft.hashing #ccffcc{
-    class LongHashFunction #ffcccc{
-        ...
-    }
+    package net.openhft.hashing #ccffcc{
+        class LongHashFunction #ffcccc{
+            ...
+        }
 }
 package com.github.javafaker #ccffcc{
     class Faker #ffcccc{
         ...
     }
+}
 }
 package cl.ucn.disc.dsm.news #ccffcc {
 
@@ -75,4 +78,5 @@ package cl.ucn.disc.dsm.news #ccffcc {
 ```
 
 ## license
+
 [MIT](https://choosealicense/mit/)

@@ -19,38 +19,21 @@
  * OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package cl.ucn.disc.dsm.mvicencio.news;
+package cl.ucn.disc.dsm.mvicencio.news.services;
 
+import cl.ucn.disc.dsm.mvicencio.news.model.News;
 import java.util.List;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
 
 /**
+ * the Contracts of the news Project
  * @author Miguel Vicencio Gomez
- * the class to test the contractsimplfaker class
  */
-public class TestContractsImplFaker {
+public interface Contracts {
 
   /**
-   * testing the constructor
+   *
+   * @return all the News in the backend ordered by published
    */
-  @Test
-  public void testConstructor(){
-
-  }
-
-  /**
-   * testing the retrieve News
-   */
-  @Test
-  public void testRetrieveNews(){
-    final Contracts contracts = new ContractsImplFaker();
-    Assertions.assertNotNull(contracts,"Contracts was null");
-
-    final List<News> listNews = contracts.retrieveNews(10);
-    Assertions.assertNotNull(listNews,"listNews was null");
-    Assertions.assertEquals(10,listNews.size(),"Wrong number of elements");
-
-  }
+  List<News> retrieveNews(int size);
 
 }

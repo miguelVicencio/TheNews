@@ -19,45 +19,41 @@
  * OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package cl.ucn.disc.dsm.mvicencio.news;
+package cl.ucn.disc.dsm.mvicencio.news.services;
 
-import com.github.javafaker.Faker;
-import java.util.ArrayList;
+import cl.ucn.disc.dsm.mvicencio.news.model.News;
+import cl.ucn.disc.dsm.mvicencio.news.services.Contracts;
+import cl.ucn.disc.dsm.mvicencio.news.services.ContractsImplFaker;
 import java.util.List;
-import org.threeten.bp.ZoneId;
-import org.threeten.bp.ZonedDateTime;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 /**
  * @author Miguel Vicencio Gomez
- * Contracts Implementation of News With Faker
+ * the class to test the contractsimplfaker class
  */
-public class ContractsImplFaker implements Contracts{
+public class TestContractsImplFaker {
 
   /**
-   * @return all the News in the backend ordered by published
+   * testing the constructor
    */
-  @Override
-  public List<News> retrieveNews(int size) {
-    //faker provider
-    Faker faker = new Faker();
-    //the list to return
-    final List<News> newsList = new ArrayList<>();
+  @Test
+  public void testConstructor(){
 
-    for(int i = 0 ; i< size; i++){
-      News news = new News(
-          faker.superhero().name(),
-          faker.artist().name(),
-          faker.name().firstName(),
-          faker.internet().url(),
-          faker.internet().url(),
-          faker.backToTheFuture().quote(),
-          faker.starTrek().villain(),
-          ZonedDateTime.now(ZoneId.of("-4"))
-      );
-
-      newsList.add(news);
-
-    }
-    return newsList;
   }
+
+  /**
+   * testing the retrieve News
+   */
+  @Test
+  public void testRetrieveNews(){
+    final Contracts contracts = new ContractsImplFaker();
+    Assertions.assertNotNull(contracts,"Contracts was null");
+
+    final List<News> listNews = contracts.retrieveNews(10);
+    Assertions.assertNotNull(listNews,"listNews was null");
+    Assertions.assertEquals(10,listNews.size(),"Wrong number of elements");
+
+  }
+
 }
