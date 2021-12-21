@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:orientation="vertical"
+  tools:context=".news.MainActivity">
+
+   <androidx.appcompat.widget.Toolbar
+     android:id="@+id/toolbar"
+     android:layout_width="match_parent"
+     android:layout_height="?attr/actionBarSize"
+     android:elevation="4dp"
+     android:minHeight="?attr/actionBarSize"
+     android:theme="@style/Theme.Toolbar"
+     app:contentInsetStart="0dp"
+     app:contentInsetStartWithNavigation="0dp"
+     app:subtitle="Desarrollo Soluciones Moviles"
+     app:title="The News" />
+
+   <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+     android:id="@+id/am_srl_refresh"
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+     android:scrollbars="vertical">
+
+      <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/am_rv_list_news"
+        android:layout_width="match_parent"
+        android:scrollbars="vertical"
+        android:layout_height="match_parent" >
+
+      </androidx.recyclerview.widget.RecyclerView>
+
+   </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+</LinearLayout>

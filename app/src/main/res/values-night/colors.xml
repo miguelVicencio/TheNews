@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="toolbarTitleTextColor">@color/blue_400</color>
+    <color name="toolbarSubtitleTextColor">@color/blue_600</color>
+    <color name="toolbarBackground">@color/blue_1200</color>
+
+    <!-- The color of the text-->
+    <color name="textColorPrimary">@color/blue_0</color>
+    <color name="textColorSecondary">@color/blue_50</color>
+    <color name="textColorTerciary">@color/blue_100</color>
+
+</resources>
