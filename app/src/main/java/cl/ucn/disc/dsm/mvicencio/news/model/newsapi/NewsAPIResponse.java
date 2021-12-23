@@ -19,29 +19,22 @@
  * OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package cl.ucn.disc.dsm.mvicencio.news.services;
-
-import cl.ucn.disc.dsm.mvicencio.news.model.News;
+package cl.ucn.disc.dsm.mvicencio.news.model.newsapi;
 import java.util.List;
 
+
 /**
- * the Contracts of the news Project
- * @author Miguel Vicencio Gomez
+ *  newsApiResponse class and Crate list of articles
+ * https://www.jsonschema2pojo.org
  */
-public interface Contracts {
+public class NewsAPIResponse {
 
-  /**
-   * Get the list of news.
-   *
-   * @param size of the list.
-   * @return the list of news.
-   */
-  List<News> retrieveNews(Integer size);
 
-  /**
-   * Save one news to the system.
-   * @param news to save.
-   */
-  void save(News news);
+
+    public String status;
+    public Integer totalResults;
+    public List<Article> articles = null;
+
+
 
 }

@@ -19,29 +19,23 @@
  * OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package cl.ucn.disc.dsm.mvicencio.news.services;
-
-import cl.ucn.disc.dsm.mvicencio.news.model.News;
-import java.util.List;
-
+package cl.ucn.disc.dsm.mvicencio.news.model.newsapi;
 /**
- * the Contracts of the news Project
- * @author Miguel Vicencio Gomez
+ *  article for the notice
+ * https://www.jsonschema2pojo.org
  */
-public interface Contracts {
+public class Article {
 
-  /**
-   * Get the list of news.
-   *
-   * @param size of the list.
-   * @return the list of news.
-   */
-  List<News> retrieveNews(Integer size);
 
-  /**
-   * Save one news to the system.
-   * @param news to save.
-   */
-  void save(News news);
+    public Source source;
+    public String author;
+    public String title;
+    public String description;
+    public String url;
+    public String urlToImage;
+    public String publishedAt;
+    public String content;
+
+
 
 }

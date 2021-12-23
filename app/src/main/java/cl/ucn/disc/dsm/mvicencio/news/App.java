@@ -19,29 +19,20 @@
  * OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package cl.ucn.disc.dsm.mvicencio.news.services;
+package cl.ucn.disc.dsm.mvicencio.news;
 
-import cl.ucn.disc.dsm.mvicencio.news.model.News;
-import java.util.List;
+import android.app.Application;
+import com.facebook.drawee.backends.pipeline.Fresco;
 
-/**
- * the Contracts of the news Project
- * @author Miguel Vicencio Gomez
- */
-public interface Contracts {
+public final class App extends Application {
 
   /**
-   * Get the list of news.
-   *
-   * @param size of the list.
-   * @return the list of news.
+   * Initialize the application.
+   * the App must be actualized in the cellphone to load the NEWS
    */
-  List<News> retrieveNews(Integer size);
-
-  /**
-   * Save one news to the system.
-   * @param news to save.
-   */
-  void save(News news);
-
+  @Override
+  public void onCreate() {
+    super.onCreate();
+    Fresco.initialize(this);
+  }
 }
