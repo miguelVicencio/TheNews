@@ -1,6 +1,6 @@
 # The news Project
 
-Android Project to show a list of News
+Android Project to show a list of News in the cellphone App
 
 ## Class Model
 
