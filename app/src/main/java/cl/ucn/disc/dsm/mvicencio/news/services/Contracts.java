@@ -31,9 +31,17 @@ import java.util.List;
 public interface Contracts {
 
   /**
+   * Get the list of news.
    *
-   * @return all the News in the backend ordered by published
+   * @param size of the list.
+   * @return the list of news.
    */
-  List<News> retrieveNews(int size);
+  List<News> retrieveNews(Integer size);
+
+  /**
+   * Save one news to the system.
+   * @param news to save.
+   */
+  void save(News news);
 
 }
