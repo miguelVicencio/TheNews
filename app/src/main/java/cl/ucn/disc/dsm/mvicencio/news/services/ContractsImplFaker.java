@@ -24,6 +24,7 @@ package cl.ucn.disc.dsm.mvicencio.news.services;
 import cl.ucn.disc.dsm.mvicencio.news.model.News;
 import com.github.javafaker.Faker;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import org.threeten.bp.ZoneId;
 import org.threeten.bp.ZonedDateTime;
@@ -34,17 +35,19 @@ import org.threeten.bp.ZonedDateTime;
  */
 public class ContractsImplFaker implements Contracts{
 
+  private final List<News> listNews = new ArrayList<>();
   /**
    * @return all the News in the backend ordered by published
    */
-  @Override
-  public List<News> retrieveNews(int size) {
+  public ContractsImplFaker(){
+    int N = 20;
+
     //faker provider
     Faker faker = new Faker();
-    //the list to return
-    final List<News> newsList = new ArrayList<>();
 
-    for(int i = 0 ; i< size; i++){
+    //the list to return
+
+    for(int i = 0 ; i< N; i++){
       News news = new News(
           faker.superhero().name(),
           faker.artist().name(),
@@ -53,12 +56,61 @@ public class ContractsImplFaker implements Contracts{
           faker.internet().url(),
           faker.backToTheFuture().quote(),
           faker.artist().name(),
-          ZonedDateTime.now(ZoneId.of("-4"))
+          ZonedDateTime.now(ZoneId.of("-3"))
       );
 
-      newsList.add(news);
+      this.save(news);
 
     }
-    return newsList;
+
   }
+
+  @Override
+  public List<News> retrieveNews(final Integer size) {
+
+    // Preconditions
+    if (size <= 0) {
+      throw new IllegalArgumentException("size cannot be zero or negative");
+    }
+
+    if (size > this.listNews.size()) {
+      throw new IndexOutOfBoundsException("Size > The current size");
+    }
+
+    // Return the last "size" inside of unmodifiable list
+    return Collections.unmodifiableList(
+        this.listNews.subList(this.listNews.size()-size, this.listNews.size())
+    );
+
+  }
+
+  /**
+   * Save one news to the system.
+   *
+   * @param news to save.
+   */
+  @Override
+  public void save(final News news) {
+
+    //Nullity test
+    if (news == null){
+      throw new IllegalArgumentException("Need news != null");
+    }
+
+    //No duplicates allowed
+    for (News n : this.listNews){
+      if (n != null && n.getId().equals(news.getId())){
+        throw new IllegalArgumentException("News already in the list");
+      }
+    }
+
+    //Insert into the end of the list
+    this.listNews.add(news);
+
+    //sort the list by publishedAt
+    Collections.sort(this.listNews,
+        (a, b) -> b.getPublishedAt().compareTo(a.getPublishedAt()));
+  }
+
+
 }
