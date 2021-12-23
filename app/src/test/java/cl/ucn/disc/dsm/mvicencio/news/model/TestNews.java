@@ -21,7 +21,7 @@
 
 package cl.ucn.disc.dsm.mvicencio.news.model;
 
-import cl.ucn.disc.dsm.mvicencio.news.model.News;
+
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -38,6 +38,7 @@ public class TestNews {
   /**
    * Test of constructor
    */
+  // FIXME: arreglar ya que esta fallando las pruebas pero la app funciona correctamente
   @Test
   public void testConstructor(){
     log.debug("Testing constructor ..");
