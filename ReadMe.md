@@ -103,7 +103,7 @@ package cl.ucn.disc.dsm.news #ccffcc {
                 - urlImage: String
                 - description: String
                 - content: String
-                +News(title:String, source:String,author:String,url:String,urlImage:String,
+                + News(title:String, source:String,author:String,url:String,urlImage:String,
                 description:String,content:String,published:ZonedDateTime)
                 + getId(): Long
                 + getTitle(): String
