@@ -75,7 +75,7 @@ public final class News {
    * the dete of Published
    */
   @Getter
-  private final ZonedDateTime published;
+  private final ZonedDateTime publishedAt;
 
   /**
    *
@@ -86,47 +86,43 @@ public final class News {
    * @param urlImage can be null.
    * @param description can´t be null.
    * @param content can´t be null.
-   * @param published can´t be null.
+   * @param publishedAt can´t be null .
    */
 
   public News(final String title,final String source,final String author,final String url,
       final String urlImage,final String description,final String content,
-      final ZonedDateTime published) {
-    //validate the title
-    if(title == null || title.length() < 2){
-      throw new IllegalArgumentException("Title required");
+      final ZonedDateTime publishedAt) {
+
+    //Title replace to validate
+    this.title = (title != null && title.length() > 0) ? title : "No Title";
+
+    // Source validation
+    if(source == null) {
+      throw new IllegalArgumentException("Source was null");
     }
-    this.title = title;
-    //source
-    if(source == null || source.length() < 2){
-      throw new IllegalArgumentException("Source required");
+
+    if (source.length() < 2){
+      throw new IllegalArgumentException("Source size < 2 [" + source + "]");
     }
     this.source = source;
-    //author
-    if(author == null || author.length() < 3){
-      throw new IllegalArgumentException("author required");
-    }
-    this.author = author;
-    //create ID
-    // ID : hashing(title + | + source+ | + author)
-    this.id = LongHashFunction.xx().hashChars(title + "|" + source + "|" + author);
+
+    //Author
+    this.author = (author != null && author.length() > 0) ? author :"No Author";
+
+    // Hash xx (title + source + author)
+    this.id = LongHashFunction.xx().hashChars(
+        this.getTitle() + "|" + this.getSource() + "|" + this.getAuthor()
+    );
+
     this.url = url;
     this.urlImage = urlImage;
-    //description
-    if(description == null || description.length() < 4){
-      throw new IllegalArgumentException("Description required");
-    }
     this.description = description;
-    //content
-    if(content == null || content.length() < 2){
-      throw new IllegalArgumentException("content required");
-    }
     this.content = content;
-    //published
-    if(published == null){
-      throw new IllegalArgumentException("Published At required");
-    }
-    this.published = published;
 
+    //publishedAt validation
+    if(publishedAt == null){
+      throw new IllegalArgumentException("The publishedAt needed!");
+    }
+    this.publishedAt = publishedAt;
   }
 }
